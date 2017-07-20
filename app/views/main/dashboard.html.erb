@@ -1,0 +1,15 @@
+<h1>User Sign Up</h1>
+<% if doctor_signed_in? || patient_signed_in? %>
+ <% if doctor_signed_in? %>
+  <%= link_to "Edit information", edit_doctor_registration_path %>
+  <%= link_to "Sign out", destroy_doctor_session_path, :method => :delete %>
+  <% elsif patient_signed_in? %>
+  <%= link_to "Edit information", edit_patient_registration_path %>
+  <%= link_to "Sign out", destroy_patient_session_path, :method => :delete %>
+  <% end %>
+<% else %>
+<p> I am
+<%= link_to "Doctor", new_doctor_registration_path %>, or
+
+<%= link_to "Patient", new_patient_registration_path %>
+<% end %>
